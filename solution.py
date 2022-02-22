@@ -29,7 +29,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
 
     recv = clientSocket.recv(1024)
     recv = recv.decode()
-    print(recv) #You can use these print statement to validate return codes from the server.
+    #print(recv) #You can use these print statement to validate return codes from the server.
     if recv[:3] != '220':
         print('220 reply not received from server.')
 
@@ -38,7 +38,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     clientSocket.send(heloCommand.encode())
     recv1 = clientSocket.recv(1024)
     recv1 = recv1.decode()
-    print(recv1)
+   # print(recv1)
     if recv1[:3] != '250':
         print('250 reply not received from server.')
 
@@ -53,7 +53,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
         print('250 reply not received from server.')
     # print("After MAIL FROM command: " + recv1)
     # Fill in end
-    print("Sent MAIL FROM")
+    #print("Sent MAIL FROM")
     # Send RCPT TO command and handle server response.
 
     # Fill in start
@@ -61,22 +61,22 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     clientSocket.send(mailtoCommand.encode())
     recv1 = clientSocket.recv(1024)
     recv1 = recv1.decode()
-    print(recv1)
+    #print(recv1)
     if recv1[:3] != '250':
         print('250 reply not received from server.')
     # Fill in end
-    print("Sent RCPT TO")
+    #print("Sent RCPT TO")
 
     # Send DATA command and handle server response.
     # Fill in start
     senddataCommand = 'DATA\r\n'
     clientSocket.send(senddataCommand.encode())
     recv1 = clientSocket.recv(1024).decode()
-    print(recv1)
+    #print(recv1)
     if recv1[:3] != '354':
         print('354 reply not received from server.')
     # Fill in end
-    print("Sent DATA")
+    #print("Sent DATA")
 
     # Send message data.
     # Fill in start
@@ -99,7 +99,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     recv1 = clientSocket.recv(1024)
     recv1 = recv1.decode()
 
-    print(recv1)
+    #print(recv1)
 
     if recv1[:3] != '250':
         print('250 reply not received from server.')
