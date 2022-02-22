@@ -17,14 +17,14 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Choose a mail server (e.g. Google mail server) if you want to verify the script beyond GradeScope
     # Create socket called clientSocket and establish a TCP connection with mailserver and port
 
-    #smtpServerName = 'smtp.nyu.edu'
-    smtpServerName = 'smtp.verizon.net'
-    serverPort = 25
+    #mailserver = 'smtp.nyu.edu'
+    #mailserver = 'smtp.verizon.net'
+    #serverPort = 25
 
     #HANDSHAKING
     # Fill in start
     clientSocket = socket(AF_INET, SOCK_STREAM)
-    clientSocket.connect((smtpServerName, port))
+    clientSocket.connect((mailserver, port))
     # Fill in end
 
     recv = clientSocket.recv(1024)
