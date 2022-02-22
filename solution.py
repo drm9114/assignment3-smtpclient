@@ -17,8 +17,8 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Choose a mail server (e.g. Google mail server) if you want to verify the script beyond GradeScope
     # Create socket called clientSocket and establish a TCP connection with mailserver and port
 
-    #serverName = 'smtp.nyu.edu'
-    serverName = 'smtp.verizon.net'
+    serverName = 'smtp.nyu.edu'
+    #serverName = 'smtp.verizon.net'
     serverPort = 25
 
     #HANDSHAKING
@@ -38,9 +38,9 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     clientSocket.send(heloCommand.encode())
     recv1 = clientSocket.recv(1024)
     recv1 = recv1.decode()
-   # print(recv1)
+    #print(recv1)
     if recv1[:3] != '250':
-        print('250 reply not received from server.')
+        print('250 reply not received from server - 1.')
 
     #TRANSFER MESSAGES
     # Send MAIL FROM command and handle server response.
@@ -50,7 +50,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     recv1 = clientSocket.recv(1024)
     recv1 = recv1.decode()
     if recv1[:3] != '250':
-        print('250 reply not received from server.')
+        print('250 reply not received from server - 2.')
     # print("After MAIL FROM command: " + recv1)
     # Fill in end
     #print("Sent MAIL FROM")
@@ -63,7 +63,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     recv1 = recv1.decode()
     #print(recv1)
     if recv1[:3] != '250':
-        print('250 reply not received from server.')
+        print('250 reply not received from server - 3.')
     # Fill in end
     #print("Sent RCPT TO")
 
@@ -102,7 +102,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     #print(recv1)
 
     if recv1[:3] != '250':
-        print('250 reply not received from server.')
+        print('250 reply not received from server - 4.')
     # Fill in end
 
     clientSocket.close()
